@@ -1,0 +1,23 @@
+PopupDemo/PopupDemo/Manager/MBPopupTaskProtocol.swift
+  s_9f96ab781b6c10::t_3d0b4f10817002 92-96
+PopupDemo/PopupDemo/Manager/MBPopupManager.swift
+  s_9f96ab781b6c10::t_9fa4ff7d500c50 162-169
+PopupDemo/PopupDemo/Manager/Task/MBPopupTask.swift
+  s_9f96ab781b6c10::t_3f2a5e3d9e1494 45-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "685418011d4a7157db7613c57132a56696a1f0db",
+  "prompts": {},
+  "sessions": {
+    "s_9f96ab781b6c10": {
+      "agent_id": {
+        "tool": "codewiz",
+        "id": "0b11ad87-1ee0-43a1-9039-3a9b6a68f329",
+        "model": "claude-4.6-sonnet-google"
+      },
+      "human_author": "正北飞 <1214569257@qq.com>"
+    }
+  }
+}

@@ -89,6 +89,11 @@ public protocol MBPopupControllable: NSObjectProtocol {
     /// - Manager 会在弹窗加入队列时注入此回调
     /// - 业务方调用此 block 可主动关闭弹窗
     var close: (() -> Void)? { get set }
+    
+    /// 展示前拦截回调（由 Manager 在 performShow 阶段调用）
+    /// - 返回 true 表示拦截，弹窗不展示直接丢弃；返回 false 或为 nil 表示放行
+    /// - 业务方在创建 Task 后按需赋值，捕获当时的业务状态做判断
+    var onShowIntercept: (() -> Bool)? { get set }
 }
 
 // MARK: - 5. 状态管理

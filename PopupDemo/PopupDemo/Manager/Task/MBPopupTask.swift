@@ -42,6 +42,11 @@ public class MBPopupTask: NSObject, MBPopupTaskProtocol {
     /// 关闭回调（由 Manager 注入，业务可调用此 block 主动关闭弹窗）
     public var close: (() -> Void)?
     
+    /// 展示前拦截回调（由 Manager 在 performShow 阶段调用）
+    /// - 返回 true 表示拦截，弹窗不展示直接丢弃；返回 false 或为 nil 表示放行
+    /// - 业务方在创建 Task 后按需赋值，捕获当时的业务状态做判断
+    public var onShowIntercept: (() -> Bool)?
+    
     /// 进入队列时间（Unix 时间戳，秒，由 Manager 赋值）
     public var entryTime: TimeInterval = 0
     

@@ -159,6 +159,14 @@ public class MBPopupManager: NSObject {
     /// 真正执行弹窗显示操作（设置时间、添加到显示列表、调用弹窗的show方法）
     /// - Parameter popup: 要显示的弹窗
     private func performShow(_ popup: MBPopupTaskProtocol) {
+        // 0. 展示前拦截：业务方返回 true 则丢弃本次展示
+        if popup.onShowIntercept?() == true {
+            print("[MBPopupManager] show intercepted, discard popup, \(String(describing: popup))")
+            popup.dismissTime = Date().timeIntervalSince1970
+            popup.state = .closed
+            processNextPopup()
+            return
+        }
         guard let container = container else {
             print("[MBPopupManager] show failed, container is nil, \(String(describing: popup))")
             return
